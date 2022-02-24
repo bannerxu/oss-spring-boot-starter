@@ -44,15 +44,9 @@ public interface OssClient {
      */
     Boolean existByKey(String key);
 
-    /**
-     * exist 根据 url 判断是否存在
-     * url 开头必须和配置文件中保持一致
-     */
-    Boolean existByUrl(String url);
 
     void deleteByKey(String key);
 
-    void deleteByUrl(String url);
 
 
     /**

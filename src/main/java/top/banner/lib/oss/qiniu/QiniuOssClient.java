@@ -5,6 +5,7 @@ import com.qiniu.common.QiniuException;
 import com.qiniu.http.Response;
 import com.qiniu.storage.BucketManager;
 import com.qiniu.storage.Configuration;
+import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.storage.model.FetchRet;
@@ -43,7 +44,7 @@ public class QiniuOssClient implements OssClient {
         key = removeFirstSlash(key);
 
         //构造一个带指定 Region 对象的配置类
-        Configuration cfg = new Configuration(qiniuProperties.getRegion());
+        Configuration cfg = new Configuration(getRegion());
         //...其他参数参考类注释
         UploadManager uploadManager = new UploadManager(cfg);
         String upToken = sign();
@@ -62,7 +63,7 @@ public class QiniuOssClient implements OssClient {
             } catch (QiniuException ignored) {
             }
         }
-        return null;
+        throw new IllegalArgumentException("文件上传失败");
     }
 
     @Override
@@ -97,14 +98,30 @@ public class QiniuOssClient implements OssClient {
 
     private BucketManager getBucketManager() {
         Auth auth = Auth.create(qiniuProperties.getAccessKey(), qiniuProperties.getSecretKey());
-        Configuration cfg = new Configuration(qiniuProperties.getRegion());
+        Configuration cfg = new Configuration(getRegion());
         return new BucketManager(auth, cfg);
     }
 
-    @Override
-    public Boolean existByUrl(String url) {
-        return existByKey(url.replace(qiniuProperties.getUrlPrefix() + "/", ""));
+    private Region getRegion() {
+        String region = qiniuProperties.getRegion();
+        switch (region) {
+            case "z0":
+                return Region.huadong();
+            case "z1":
+                return Region.huabei();
+            case "z2":
+                return Region.huanan();
+            case "na0":
+                return Region.beimei();
+            case "as0":
+                return Region.xinjiapo();
+            case "cn-east-2":
+                return Region.regionCnEast2();
+            default:
+                return Region.autoRegion();
+        }
     }
+
 
     @Override
     public void deleteByKey(String key) {
@@ -119,11 +136,6 @@ public class QiniuOssClient implements OssClient {
             } catch (QiniuException ignored) {
             }
         }
-    }
-
-    @Override
-    public void deleteByUrl(String url) {
-        deleteByKey(url.replace(qiniuProperties.getUrlPrefix() + "/", ""));
     }
 
     @SuppressWarnings("unchecked")

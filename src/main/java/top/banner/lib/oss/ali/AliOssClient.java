@@ -94,11 +94,6 @@ public class AliOssClient implements OssClient {
     }
 
     @Override
-    public Boolean existByUrl(String url) {
-        return existByKey(url.replace(aliProperties.getUrlPrefix() + "/", ""));
-    }
-
-    @Override
     public void deleteByKey(String key) {
         key = removeFirstSlash(key);
         OSS ossClient = getOSSClient();
@@ -109,11 +104,6 @@ public class AliOssClient implements OssClient {
         } finally {
             ossClient.shutdown();
         }
-    }
-
-    @Override
-    public void deleteByUrl(String url) {
-        deleteByKey(url.replace(aliProperties.getUrlPrefix() + "/", ""));
     }
 
     /**

@@ -5,11 +5,33 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "spring.oss.ali")
 public class AliProperties {
     private String region;
+    /**
+     * RAM用户 AccessKey ID
+     * https://help.aliyun.com/document_detail/100624.html
+     */
     private String accessKeyId;
+    /**
+     * RAM用户 AccessKey Secret
+     * https://help.aliyun.com/document_detail/100624.html
+     */
     private String accessKeySecret;
+    /**
+     * 临时访问凭证的角色
+     * https://help.aliyun.com/document_detail/100624.html
+     */
     private String roleArn;
+    /**
+     * bucket
+     */
     private String bucket;
+    /**
+     * Bucket所在地域对应的Endpoint。
+     * 以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+     */
     private String ossEndpoint;
+    /**
+     * bucket 绑定的域名
+     */
     private String urlPrefix;
 
 

@@ -3,10 +3,7 @@ package top.banner.lib.oss;
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.upyun.UpException;
-import com.upyun.UpYunUtils;
 import lombok.SneakyThrows;
-import okhttp3.HttpUrl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,8 +11,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import top.banner.lib.oss.core.OssClient;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
-import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -38,11 +33,6 @@ public class OssClientApplicationTests {
         System.out.println(new ObjectMapper().writeValueAsString(sign));
     }
 
-    @SneakyThrows
-    @Test
-    public void aliExist() {
-        System.out.println(aliOssClient.existByUrl("https://img.tukuppt.com/png_preview/00/35/65/K3L3SnCFDl.jpg!/fw/780"));
-    }
 
     @Test
     public void qiniuSign() {
@@ -78,24 +68,11 @@ public class OssClientApplicationTests {
 
     /**
      * https://www.yuque.com/u160746/fk96qt/dtxsm9
+     * https://techs.upyun.com/script/script.html
      */
     @Test
-    public void upYunSign() throws UpException {
-        Map<String, Object> map = new HashMap<>();
-        map.put("bucket", "sd");
-        map.put("save-key", 1);
-        map.put("expiration", 1);
-        String policy = UpYunUtils.getPolicy(map);
-        System.out.println(policy);
+    public void upYunSign() {
 
-        String url = HOST + UpYunUtils.formatPath(bucketName, "/abc/123");
-        System.out.println("url： " + url);
-        String uri = HttpUrl.get(url).encodedPath();
-        System.out.println("uri： " + uri);
-        String sign = UpYunUtils.sign("GET", UpYunUtils.getGMTDate(), uri, "bannerxu001", "RvnhjV8Fv254oni9BlK0Wd5EDsLENSMK", null);
-
-        String signature = UpYunUtils.getSignature(policy, sign);
-        System.out.println(signature);
     }
 
 }

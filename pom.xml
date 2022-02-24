@@ -106,13 +106,24 @@
             <version>7.9.3</version>
         </dependency>
 
-        <!-- 又拍云 https://help.upyun.com/knowledge-base/tools-storage-process-sdk/  -->
+        <!-- 又拍云 https://help.upyun.com/knowledge-base/tools-storage-process-sdk/  https://www.yuque.com/u160746/fk96qt/dtxsm9 -->
         <dependency>
             <groupId>com.upyun</groupId>
             <artifactId>java-sdk</artifactId>
             <version>4.2.3</version>
         </dependency>
-
+        <!--  腾讯云 -->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos-sts_api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.qcloud/cos_api -->
+        <dependency>
+            <groupId>com.qcloud</groupId>
+            <artifactId>cos_api</artifactId>
+            <version>5.6.68</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
