@@ -1,5 +1,44 @@
-# 工程简介
+# 对接各种云存储，简单配置，完成对接
 
-# 延伸阅读
+已经支持的云存储
 
-https://help.aliyun.com/document_detail/100624.html
+- 阿里云OSS
+- 七牛云
+- 腾讯云COS
+
+![a405f3d5-892a-47fa-8927-2cd8e6241289-image](https://image.xuguoliang.top/2022/03/01/a405f3d5-892a-47fa-8927-2cd8e6241289-image-iVX0g3.jpg)
+
+## 为什么要选择前端直传
+
+传统方式相比直传OSS，相对来说有三个缺点：
+
+- 上传慢：用户数据需先上传到应用服务器，之后再上传到OSS。网络传输时间比直传到OSS多一倍。如果用户数据不通过应用服务器中转，而是直传到OSS，速度将大大提升。而且OSS采用BGP带宽，能保证各地各运营商之间的传输速度。
+- 扩展性差：如果后续用户多了，应用服务器会成为瓶颈。
+- 费用高：需要准备多台应用服务器。由于OSS上传流量是免费的，如果数据直传到OSS，不通过应用服务器，那么将能省下几台应用服务器。
+
+## 使用方式
+
+### 阿里云OSS
+
+前提：按照文档[使用STS临时访问凭证访问OSS](https://help.aliyun.com/document_detail/100624.html)获取 **
+一个安全令牌（SecurityToken）、临时访问密钥（AccessKeyId和AccessKeySecret）以及过期时间。**
+
+如何配置：
+
+```xml
+spring.oss.ali.region=oss-ap-southeast-1
+        spring.oss.ali.access-key-id=
+        spring.oss.ali.access-key-secret=
+        spring.oss.ali.role-arn=
+        spring.oss.ali.bucket=
+        spring.oss.ali.oss-endpoint=https://oss-accelerate.aliyuncs.com
+        spring.oss.ali.url-prefix=https://ican-c2c.oss-accelerate.aliyuncs.com
+```
+
+- region
+  Region表示OSS的数据中心所在物理位置。详情请参见[OSS已经开通的Region](https://help.aliyun.com/document_detail/31837.htm#concept-zt4-cvy-5db)。
+
+### 七牛云
+
+### 腾讯云COS
+

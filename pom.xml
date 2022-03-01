@@ -5,6 +5,7 @@
     <groupId>io.github.bannerxu</groupId>
     <artifactId>oss-spring-boot-starter</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+<!--    <version>0.0.1-SNAPSHOT</version>-->
     <name>oss-spring-boot-starter</name>
     <description>oss-spring-boot-starter</description>
     <url>https://github.com/bannerXu/oss-spring-boot-starter</url>

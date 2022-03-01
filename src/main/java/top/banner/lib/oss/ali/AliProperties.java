@@ -4,6 +4,11 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.oss.ali")
 public class AliProperties {
+
+    /**
+     * Region表示OSS的数据中心所在物理位置。
+     * 详情请参见[OSS已经开通的Region](https://help.aliyun.com/document_detail/31837.htm#concept-zt4-cvy-5db)。
+     */
     private String region;
     /**
      * RAM用户 AccessKey ID
