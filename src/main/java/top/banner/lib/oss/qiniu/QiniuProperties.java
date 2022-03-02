@@ -4,8 +4,13 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.oss.qiniu")
 public class QiniuProperties {
-
+    /**
+     * accessKey
+     */
     private String accessKey;
+    /**
+     * secretKey
+     */
     private String secretKey;
     /**
      * 七牛云 bucket
@@ -13,10 +18,14 @@ public class QiniuProperties {
     private String bucket;
 
     /**
+     * 地区
      * https://developer.qiniu.com/kodo/1671/region-endpoint-fq
      */
     private String region;
 
+    /**
+     * bucket 绑定的域名
+     */
     private String urlPrefix;
 
     public String getAccessKey() {
@@ -52,6 +61,9 @@ public class QiniuProperties {
     }
 
     public String getUrlPrefix() {
+        if (urlPrefix.endsWith("/")) {
+            urlPrefix = urlPrefix.substring(0, urlPrefix.lastIndexOf("/"));
+        }
         return urlPrefix;
     }
 

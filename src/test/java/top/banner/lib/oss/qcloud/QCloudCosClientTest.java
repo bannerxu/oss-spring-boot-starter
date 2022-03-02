@@ -1,6 +1,9 @@
 package top.banner.lib.oss.qcloud;
 
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.tencent.cloud.Response;
 import lombok.SneakyThrows;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,8 +20,9 @@ public class QCloudCosClientTest {
     private QCloudCosClient qCloudCosClient;
 
     @Test
-    public void sign() {
-        System.out.println(qCloudCosClient.sign());
+    public void sign() throws JsonProcessingException {
+        Response sign = qCloudCosClient.sign();
+        System.out.println(new ObjectMapper().writeValueAsString(sign));
     }
 
 

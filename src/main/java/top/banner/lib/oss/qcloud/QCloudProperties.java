@@ -4,10 +4,25 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.oss.qcloud")
 public class QCloudProperties {
+    /**
+     * 地区
+     */
     private String region;
+    /**
+     * 账户secretId
+     */
     private String secretId;
+    /**
+     * 账户secretKey
+     */
     private String secretKey;
+    /**
+     * bucket
+     */
     private String bucket;
+    /**
+     * bucket 绑定的域名
+     */
     private String urlPrefix;
 
 

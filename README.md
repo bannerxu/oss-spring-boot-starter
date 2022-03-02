@@ -18,9 +18,20 @@
 
 ## 使用方式
 
+Maven导入jar
+
+```xml
+
+<dependency>
+    <groupId>io.github.bannerxu</groupId>
+    <artifactId>oss-spring-boot-starter</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
 ### [阿里云OSS](ali.md)
 
 ### [七牛云](qiniu.md)
 
-### 腾讯云COS
+### [腾讯云COS](qcloud.md)
 
