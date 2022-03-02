@@ -23,7 +23,7 @@ spring.oss.qiniu.url-prefix=http://book001.xuguoliang.top
 - url-prefix bucket对应的图片访问域名
 
 # 签名结果
-
+> 请求方式：
 ```java
 @Test
 public void qiniuSign(){
@@ -32,6 +32,7 @@ public void qiniuSign(){
         }
 ```
 
+> 响应：
 ```text
 F8tcZoYecBHjzQgbssdfsa1G2HTm7RfP8wjWvZPXMooSWdGZ
 ```

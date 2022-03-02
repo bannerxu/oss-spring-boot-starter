@@ -31,7 +31,7 @@ spring.oss.ali.url-prefix=https://abc.oss-accelerate.aliyuncs.com
 - 临时访问凭证具有时效性。
 
 # 签名结果
-
+> 请求方式：
 ```java
 @Test
 public void aliSign()throws JsonProcessingException{
@@ -40,6 +40,7 @@ public void aliSign()throws JsonProcessingException{
         }
 ```
 
+> 响应：
 ```json
 {
   "securityToken": "CAIS7QF1q6Ft5B2yr5fzJMuGnbFrw4yASGz5h2siZvhK2ZOYozz2IH1NenNuB+8etfQwnW9R6/4ZlqJoWoRZSEmBb8Ju58zveq4N/82T1fau5Jko1beHewHKeTOZsebWZ+LmNqC/Ht6md1HDkAJq3LL+bk/Mdle5MJqP+/UFB5ZtKWveVzddA8pMLQZPsdITMWCrVcygKRn3mGHdfiEK00he8T4gtvzhmJbAsECF1Q2gk7Evyt6vcsj0Xa5FJ4xiVtq55utye5fa3TRYgxowr/ov0vYap2if5YHCWgYIvk3dKYHP7sZ/zOrwt1/Z08wagAFDr3T+5YMJ/INlVo/gki50HHQdWO9qXTkT3XX+eA0e2NtAWXndLXvzuF+cfyhYAnDHpFLhhyVVzS90prgFwns4baO5q+CxDE3Qmc/ZUN6uNggKx7/DFhKra0pqncApPQna77JTfpVoK/2myERJeSlprLutUWX8HE0k0mHqM23shQ==",
