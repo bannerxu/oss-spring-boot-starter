@@ -18,25 +18,7 @@
 
 ## 使用方式
 
-### 阿里云OSS
-
-前提：按照文档[使用STS临时访问凭证访问OSS](https://help.aliyun.com/document_detail/100624.html)获取 **
-一个安全令牌（SecurityToken）、临时访问密钥（AccessKeyId和AccessKeySecret）以及过期时间。**
-
-如何配置：
-
-```xml
-spring.oss.ali.region=oss-ap-southeast-1
-        spring.oss.ali.access-key-id=
-        spring.oss.ali.access-key-secret=
-        spring.oss.ali.role-arn=
-        spring.oss.ali.bucket=
-        spring.oss.ali.oss-endpoint=https://oss-accelerate.aliyuncs.com
-        spring.oss.ali.url-prefix=https://ican-c2c.oss-accelerate.aliyuncs.com
-```
-
-- region
-  Region表示OSS的数据中心所在物理位置。详情请参见[OSS已经开通的Region](https://help.aliyun.com/document_detail/31837.htm#concept-zt4-cvy-5db)。
+### [阿里云OSS](ali.md)
 
 ### 七牛云
 
