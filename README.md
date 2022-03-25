@@ -29,9 +29,9 @@ Maven导入jar
 </dependency>
 ```
 
-### [阿里云OSS](ali.md)
+### [阿里云OSS](doc/ali.md)
 
-### [七牛云](qiniu.md)
+### [七牛云](doc/qiniu.md)
 
-### [腾讯云COS](qcloud.md)
+### [腾讯云COS](doc/qcloud.md)
 
